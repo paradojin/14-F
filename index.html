@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz 14 de Febrero Amorcito!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Animaciones flotantes */
+        .heart-float {
+            position: fixed;
+            pointer-events: none;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: float-up 6s ease-in forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes float-up {
+            0% {
+                bottom: -10px;
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+                transform: translateX(100px) scale(0.5);
+            }
+        }
+
+        /* Globos rojos optimizados */
+        .balloon {
+            position: fixed;
+            pointer-events: none;
+            width: 40px;
+            height: 50px;
+            background: radial-gradient(circle at 30% 30%, #ff6b9d, #c41e3a);
+            border-radius: 50% 50% 50% 0;
+            animation: float 10s ease-in forwards;
+            opacity: 0.8;
+            will-change: transform;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background: #ddd;
+            left: 50%;
+            bottom: -60px;
+            transform: translateX(-50%);
+        }
+
+        @keyframes float {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 110vh;
+                opacity: 0;
+                transform: translateX(50px) rotate(20deg);
+            }
+        }
+
+        /* Rosas */
+        .rose {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.6;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: rotate(0deg) translateY(0);
+            }
+            50% {
+                transform: rotate(5deg) translateY(-10px);
+            }
+        }
+
+        .rose:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            font-size: 2.5rem;
+        }
+
+        .rose:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 0.5s;
+            font-size: 2rem;
+        }
+
+        .rose:nth-child(3) {
+            bottom: 20%;
+            left: 8%;
+            animation-delay: 1s;
+            font-size: 2.8rem;
+        }
+
+        .rose:nth-child(4) {
+            bottom: 15%;
+            right: 5%;
+            animation-delay: 1.5s;
+            font-size: 2.3rem;
+        }
+
+        .rose:nth-child(5) {
+            top: 50%;
+            left: 2%;
+            animation-delay: 0.3s;
+            font-size: 2.6rem;
+        }
+
+        .rose:nth-child(6) {
+            top: 40%;
+            right: 3%;
+            animation-delay: 0.8s;
+            font-size: 2.2rem;
+        }
+
+        /* Contenedor principal */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            max-width: 900px;
+            width: 90%;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 105, 180, 0.2);
+            margin: 20px auto;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            color: #c41e3a;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s ease-in-out infinite;
+            font-weight: 700;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                color: #c41e3a;
+            }
+            50% {
+                transform: scale(1.05);
+                color: #e91e63;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ff1493;
+            margin-bottom: 20px;
+            font-style: italic;
+            animation: float-text 3s ease-in-out infinite;
+            font-weight: 600;
+        }
+
+        @keyframes float-text {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .love-message {
+            font-size: 1.4rem;
+            color: #d63384;
+            margin: 30px 0;
+            line-height: 1.8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(255, 20, 147, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+            }
+        }
+
+        .heart-icon {
+            font-size: 1.2rem;
+            display: inline-block;
+            margin: 0 8px;
+            animation: heartbeat 0.6s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        /* Secciones de galería */
+        .gallery-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 3px solid rgba(255, 105, 180, 0.3);
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #c41e3a;
+            margin: 40px 0 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+        }
+
+        .carousel-container {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            border: 2px dashed rgba(255, 105, 180, 0.3);
+            padding: 30px 20px;
+            margin: 0 auto 30px;
+            max-width: 600px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .carousel-wrapper {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-slide {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            background: white;
+            aspect-ratio: 1 / 1;
+            transition: opacity 0.3s ease;
+            display: none;
+        }
+
+        .carousel-slide.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-slide:hover img {
+            transform: scale(1.05);
+        }
+
+        .carousel-slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-slide:hover .carousel-slide-overlay {
+            background: rgba(255, 20, 147, 0.3);
+            opacity: 1;
+        }
+
+        .carousel-overlay-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            color: #c41e3a;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .carousel-button:hover {
+            background: rgba(255, 20, 147, 0.9);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 105, 180, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 105, 180, 0.5);
+        }
+
+        .carousel-dot.active {
+            background: #ff1493;
+            transform: scale(1.3);
+            border-color: #c41e3a;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 105, 180, 0.6);
+        }
+
+        .carousel-counter {
+            font-size: 0.95rem;
+            color: #c41e3a;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Ver todas - Mosaico gigante */
+        .mosaic-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(255, 192, 203, 0.1));
+            border-radius: 30px;
+            width: 90%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mosaic-title {
+            font-size: 2.2rem;
+            color: #c41e3a;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mosaic-button {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #ff1493, #c41e3a);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mosaic-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 20, 147, 0.6);
+        }
+
+        .mosaic-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Modal para mosaico gigante */
+        .mosaic-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .mosaic-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .mosaic-close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2001;
+        }
+
+        .mosaic-close-btn:hover {
+            background: rgba(255, 20, 147, 0.6);
+        }
+
+        .giant-mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .mosaic-image {
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mosaic-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.4);
+        }
+
+        .mosaic-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gratitude-message {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .gratitude-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+            animation: glow 2s ease-in-out infinite;
+            letter-spacing: 1px;
+        }
+
+        .gratitude-text {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #ffb6d9;
+            line-height: 1.6;
+            text-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Botones */
+        .button-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-transform: uppercase;
+            will-change: transform, box-shadow;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff1493, #c41e3a);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        /* Responsive mejorado */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                max-width: 95%;
+            }
+
+            .main-title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin: 30px 0 20px;
+            }
+
+            .carousel-container {
+                max-width: 100%;
+            }
+
+            .carousel-wrapper {
+                max-width: 100%;
+            }
+
+            .carousel-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+
+            .carousel-button.prev {
+                left: 5px;
+            }
+
+            .carousel-button.next {
+                right: 5px;
+            }
+
+            .mosaic-section {
+                width: 95%;
+            }
+
+            .mosaic-title {
+                font-size: 1.6rem;
+            }
+
+            .giant-mosaic {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 12px;
+            }
+
+            .gratitude-title {
+                font-size: 1.8rem;
+            }
+
+            .gratitude-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 15px;
+            }
+
+            .main-title {
+                font-size: 1.4rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+                margin: 20px 0 15px;
+            }
+
+            .carousel-container {
+                padding: 20px 10px;
+            }
+
+            .carousel-wrapper {
+                max-width: 100%;
+            }
+
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-button.prev {
+                left: 2px;
+            }
+
+            .carousel-button.next {
+                right: 2px;
+            }
+
+            .carousel-counter {
+                font-size: 0.9rem;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .giant-mosaic {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 8px;
+            }
+
+            .gratitude-title {
+                font-size: 1.4rem;
+            }
+
+            .gratitude-text {
+                font-size: 1rem;
+            }
+
+            .mosaic-content {
+                padding: 15px;
+            }
+
+            .rose {
+                display: none;
+            }
+        }
+
+        /* Performance: Reduce animations on low-end devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Rosas decorativas -->
+    <div class="rose">🌹</div>
+    <div class="rose">🌹</div>
+    <div class="rose">🌹</div>
+    <div class="rose">🌹</div>
+    <div class="rose">🌹</div>
+    <div class="rose">🌹</div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h1 class="main-title">
+            <span class="heart-icon">❤️</span>
+            ¡FELIZ 14 DE FEBRERO!
+            <span class="heart-icon">❤️</span>
+        </h1>
+        
+        <p class="subtitle">Amorcito</p>
+
+        <p class="love-message">
+            <span class="heart-icon">💕</span>
+            Mariela Soledad
+            <span class="heart-icon">💕</span>
+            <br>
+            TE AMO MUCHO
+            <br>
+            <span class="heart-icon">💖</span>
+        </p>
+
+        <!-- Botones -->
+        <div class="button-group">
+            <button class="btn-primary" onclick="createConfetti()">🎉 ¡Celebrar!</button>
+            <button class="btn-primary" onclick="scrollToGallery()">📸 Ver Fotos</button>
+        </div>
+    </div>
+
+    <!-- Sección de galería -->
+    <div class="gallery-section">
+        <!-- Vendidas -->
+        <h2 class="section-title">💰 Vendidas</h2>
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carouselVendidas">
+                <!-- Las imágenes se cargarán aquí -->
+            </div>
+            <div class="carousel-dots" id="dotsVendidas"></div>
+            <div class="carousel-counter" id="counterVendidas"></div>
+        </div>
+
+        <!-- Tu y Yo -->
+        <h2 class="section-title">👫 Tú y Yo</h2>
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carouselYouAndMe">
+                <!-- Las imágenes se cargarán aquí -->
+            </div>
+            <div class="carousel-dots" id="dotsYouAndMe"></div>
+            <div class="carousel-counter" id="counterYouAndMe"></div>
+        </div>
+
+        <!-- Aventuras -->
+        <h2 class="section-title">🎒 Aventuras</h2>
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carouselAdventures">
+                <!-- Las imágenes se cargarán aquí -->
+            </div>
+            <div class="carousel-dots" id="dotsAdventures"></div>
+            <div class="carousel-counter" id="counterAdventures"></div>
+        </div>
+
+        <!-- Ver todas - Mosaico -->
+        <div class="mosaic-section">
+            <h2 class="mosaic-title">✨ Ver Todo</h2>
+            <button class="mosaic-button" onclick="openGiantMosaic()">Ver Todas las Imágenes 🖼️</button>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de imágenes por categoría
+        const imageCategories = {
+            'vendidas': [
+                'WhatsApp Image 2026-02-14 at 15.36.17.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.18.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.19 (1).jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.19.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.20.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.21.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.22.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.23.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.24.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.25 (1).jpeg',
+                'WhatsApp Image 2026-02-14 at 15.36.25.jpeg'
+            ],
+            'tu-yo': [
+                'WhatsApp Image 2026-02-14 at 14.59.36.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.14.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.15.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.17.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.18.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.20.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.21 (1).jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.21.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.23.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.24.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.25.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.26.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.27 (1).jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.27.jpeg',
+                'WhatsApp Image 2026-02-14 at 15.40.28.jpeg'
+            ],
+            'aventuras': [
+                'WhatsApp Image 2026-02-14 at 16.11.48.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.50.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.51.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.53.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.54 (1).jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.54 (2).jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.54.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.56.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.57 (1).jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.57.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.58 (1).jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.58.jpeg',
+                'WhatsApp Image 2026-02-14 at 16.11.59.jpeg'
+            ]
+        };
+
+        let activeHearts = 0;
+        const MAX_HEARTS = 20;
+        const MAX_BALLOONS = 12;
+        let activeBalloons = 0;
+
+        // Estado de los carruseles
+        const carousels = {
+            'vendidas': { current: 0, images: [] },
+            'tu-yo': { current: 0, images: [] },
+            'aventuras': { current: 0, images: [] }
+        };
+
+        // Crear slides del carrusel
+        function createCarouselSlide(src, alt, index, category) {
+            const slide = document.createElement('div');
+            slide.classList.add('carousel-slide');
+            if (index === 0) slide.classList.add('active');
+            
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = alt;
+            img.loading = 'lazy';
+            
+            slide.appendChild(img);
+            
+            const overlay = document.createElement('div');
+            overlay.classList.add('carousel-slide-overlay');
+            overlay.innerHTML = '<div class="carousel-overlay-icon">❤️</div>';
+            slide.appendChild(overlay);
+            
+            slide.onclick = () => viewImageFullscreen(src, alt);
+            return slide;
+        }
+
+        // Inicializar carrusel
+        function initCarousel(category, containerId, dotsId, counterId) {
+            const container = document.getElementById(containerId);
+            const dotsContainer = document.getElementById(dotsId);
+            const counterElement = document.getElementById(counterId);
+            const images = imageCategories[category];
+            
+            carousels[category].images = images;
+            
+            // Crear slides
+            images.forEach((image, index) => {
+                const folder = category === 'tu-yo' ? 'tu-yo' : category === 'aventuras' ? 'Aventuras' : 'vendidas';
+                const src = `images/${folder}/${image}`;
+                const slide = createCarouselSlide(src, image, index, category);
+                container.appendChild(slide);
+            });
+            
+            // Crear dots
+            images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('carousel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(category, index);
+                dotsContainer.appendChild(dot);
+            });
+            
+            // Agregar botones de navegación
+            const prevBtn = document.createElement('button');
+            prevBtn.classList.add('carousel-button', 'prev');
+            prevBtn.innerHTML = '❮';
+            prevBtn.onclick = () => changeSlide(category, -1);
+            container.parentElement.insertBefore(prevBtn, container);
+            
+            const nextBtn = document.createElement('button');
+            nextBtn.classList.add('carousel-button', 'next');
+            nextBtn.innerHTML = '❯';
+            nextBtn.onclick = () => changeSlide(category, 1);
+            container.parentElement.appendChild(nextBtn);
+            
+            // Actualizar contador
+            updateCarouselCounter(category);
+        }
+
+        // Cambiar slide
+        function changeSlide(category, direction) {
+            const carousel = carousels[category];
+            const newIndex = (carousel.current + direction + carousel.images.length) % carousel.images.length;
+            goToSlide(category, newIndex);
+        }
+
+        // Ir a un slide específico
+        function goToSlide(category, index) {
+            const carousel = carousels[category];
+            carousel.current = index;
+            
+            // Actualizar slides activos
+            const slides = document.querySelectorAll(`#carousel${getCategoryId(category)} .carousel-slide`);
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) slide.classList.add('active');
+            });
+            
+            // Actualizar dots activos
+            const dots = document.querySelectorAll(`#dots${getCategoryId(category)} .carousel-dot`);
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) dot.classList.add('active');
+            });
+            
+            // Actualizar contador
+            updateCarouselCounter(category);
+        }
+
+        // Obtener ID de categoría para los selectores
+        function getCategoryId(category) {
+            if (category === 'vendidas') return 'Vendidas';
+            if (category === 'tu-yo') return 'YouAndMe';
+            if (category === 'aventuras') return 'Adventures';
+        }
+
+        // Actualizar contador
+        function updateCarouselCounter(category) {
+            const carousel = carousels[category];
+            const counterId = category === 'vendidas' ? 'counterVendidas' : 
+                            category === 'tu-yo' ? 'counterYouAndMe' : 'counterAdventures';
+            const counter = document.getElementById(counterId);
+            counter.textContent = `${carousel.current + 1} / ${carousel.images.length}`;
+        }
+
+        // Ver imagen en pantalla completa
+        function viewImageFullscreen(src, name) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                cursor: pointer;
+                animation: fadeIn 0.3s ease;
+            `;
+            
+            const img = document.createElement('img');
+            img.src = src;
+            img.style.cssText = `
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+                border-radius: 10px;
+                box-shadow: 0 0 50px rgba(255, 20, 147, 0.5);
+            `;
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '✕';
+            closeBtn.style.cssText = `
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.3);
+                border: none;
+                color: white;
+                font-size: 2rem;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            `;
+            closeBtn.onmouseover = () => {
+                closeBtn.style.background = 'rgba(255, 20, 147, 0.6)';
+            };
+            closeBtn.onmouseout = () => {
+                closeBtn.style.background = 'rgba(255, 255, 255, 0.3)';
+            };
+            closeBtn.onclick = (e) => {
+                e.stopPropagation();
+                modal.remove();
+            };
+            
+            modal.appendChild(img);
+            modal.appendChild(closeBtn);
+            modal.onclick = () => modal.remove();
+            document.body.appendChild(modal);
+        }
+
+        // Abrir mosaico gigante
+        function openGiantMosaic() {
+            const modal = document.createElement('div');
+            modal.classList.add('mosaic-modal');
+            
+            const content = document.createElement('div');
+            content.classList.add('mosaic-content');
+            
+            // Crear mensaje de gratitud
+            const gratitude = document.createElement('div');
+            gratitude.classList.add('gratitude-message');
+            gratitude.innerHTML = `
+                <div class="gratitude-title">
+                    <span class="heart-icon">💕</span> Gracias por todos los momentos juntos <span class="heart-icon">💕</span>
+                </div>
+                <div class="gratitude-text">
+                    ✨ Te Amo ✨
+                </div>
+            `;
+            content.appendChild(gratitude);
+            
+            // Crear grid de mosaico gigante
+            const mosaic = document.createElement('div');
+            mosaic.classList.add('giant-mosaic');
+            
+            // Agregar todas las imágenes
+            for (const category in imageCategories) {
+                imageCategories[category].forEach(image => {
+                    const src = `images/${category === 'tu-yo' ? 'tu-yo' : category === 'aventuras' ? 'Aventuras' : 'vendidas'}/${image}`;
+                    
+                    const imgDiv = document.createElement('div');
+                    imgDiv.classList.add('mosaic-image');
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = image;
+                    img.loading = 'lazy';
+                    img.onclick = (e) => {
+                        e.stopPropagation();
+                        viewImageFullscreen(src, image);
+                    };
+                    imgDiv.appendChild(img);
+                    mosaic.appendChild(imgDiv);
+                });
+            }
+            
+            content.appendChild(mosaic);
+            modal.appendChild(content);
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.classList.add('mosaic-close-btn');
+            closeBtn.innerHTML = '✕';
+            closeBtn.onclick = () => modal.remove();
+            modal.appendChild(closeBtn);
+            
+            modal.onclick = (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            };
+            
+            document.body.appendChild(modal);
+        }
+
+        // Cargar galerías en carruseles
+        function loadGalleries() {
+            initCarousel('vendidas', 'carouselVendidas', 'dotsVendidas', 'counterVendidas');
+            initCarousel('tu-yo', 'carouselYouAndMe', 'dotsYouAndMe', 'counterYouAndMe');
+            initCarousel('aventuras', 'carouselAdventures', 'dotsAdventures', 'counterAdventures');
+        }
+
+        // Crear corazones flotantes optimizados
+        function createHearts() {
+            if (activeHearts >= MAX_HEARTS) return;
+
+            const heart = document.createElement('div');
+            heart.classList.add('heart-float');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            document.body.appendChild(heart);
+            
+            activeHearts++;
+
+            setTimeout(() => {
+                heart.remove();
+                activeHearts--;
+            }, 6000);
+        }
+
+        // Crear globos rojos optimizados
+        function createBalloons() {
+            if (activeBalloons >= MAX_BALLOONS) return;
+
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.style.left = Math.random() * 100 + '%';
+            balloon.style.animationDuration = (8 + Math.random() * 4) + 's';
+            document.body.appendChild(balloon);
+            
+            activeBalloons++;
+
+            setTimeout(() => {
+                balloon.remove();
+                activeBalloons--;
+            }, 12000);
+        }
+
+        // Generar confeti al hacer clic en celebrar
+        function createConfetti() {
+            for (let i = 0; i < 40; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('heart-float');
+                confetti.innerHTML = ['❤️', '💕', '💖', '🎉', '✨'][Math.floor(Math.random() * 5)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+                confetti.style.animationDuration = (3 + Math.random() * 2) + 's';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Scroll a galería
+        function scrollToGallery() {
+            document.querySelector('.gallery-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Iniciar animaciones al cargar
+        window.addEventListener('load', () => {
+            // Crear animaciones iniciales (pero limitadas)
+            createHearts();
+            createBalloons();
+            
+            // Continuar agregando animaciones cada cierto tiempo
+            setInterval(createHearts, 4000);
+            setInterval(createBalloons, 6000);
+
+            // Cargar imágenes
+            loadGalleries();
+        });
+
+        // Manejar visibilidad de la pestaña
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // Detener animaciones cuando la pestaña está oculta
+            }
+        });
+    </script>
+</body>
+</html>
